@@ -1,8 +1,9 @@
 9b808cc4763b522154096e07eefd51ac  usr/bin/craftisan
+d9c48bd6217e55b3a84b47bd2afff036  usr/bin/tecno
 c46183c73114379b7f37ecefcd88ff40  usr/lib/python3/dist-packages/craftisan-0.0.3.dist-info/METADATA
-cdf53c9010d0a1cfb374bc7f6e6c90a8  usr/lib/python3/dist-packages/craftisan-0.0.3.dist-info/RECORD
+96b2ea9d235593a16f816d7f4186d3eb  usr/lib/python3/dist-packages/craftisan-0.0.3.dist-info/RECORD
 b65598d0aa0cfe0f390246499e741adb  usr/lib/python3/dist-packages/craftisan-0.0.3.dist-info/WHEEL
-7d830d2550020b3e722eb3c385413fc7  usr/lib/python3/dist-packages/craftisan-0.0.3.dist-info/entry_points.txt
+6825d216f26c8004a43339c195b7c006  usr/lib/python3/dist-packages/craftisan-0.0.3.dist-info/entry_points.txt
 802f118fa43837e076518ae9cc03e90d  usr/lib/python3/dist-packages/craftisan/RAIL.png
 b358c2e24db25ce8d1267fa3eb9e232f  usr/lib/python3/dist-packages/craftisan/__init__.py
 d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/craftisan/actions/__init__.py
@@ -11,7 +12,7 @@ e12accaeaf7e8e7bb6d23136c85bb599  usr/lib/python3/dist-packages/craftisan/crafti
 ac50116373733b98ea9e7efee072ea5f  usr/lib/python3/dist-packages/craftisan/craftisan.qrc.old
 bbdda4283fa3ff999705ed191645081a  usr/lib/python3/dist-packages/craftisan/craftisan.yml
 a9838ee0f48a5e089d8cc6ae42e7658b  usr/lib/python3/dist-packages/craftisan/craftisan_menu.yml
-025f86e786c4cc01989fe4dea1acb5db  usr/lib/python3/dist-packages/craftisan/craftisan_rc.py
+ccb4572ff596dd992f37bd495f0b440a  usr/lib/python3/dist-packages/craftisan/craftisan_rc.py
 d273d63619c9aeaf15cdaf76422c4f87  usr/lib/python3/dist-packages/craftisan/fonts/Roboto/LICENSE.txt
 d6a6f8878adb0d8e69f9fa2e0b622924  usr/lib/python3/dist-packages/craftisan/fonts/Roboto/Roboto-Black.ttf
 c3332e3b8feff748ecb0c6cb75d65eae  usr/lib/python3/dist-packages/craftisan/fonts/Roboto/Roboto-BlackItalic.ttf
@@ -151,8 +152,8 @@ ed2e60832299fff442284389a1fb1b90  usr/lib/python3/dist-packages/craftisan/styles
 820192e185955dd55157e448c44f272c  usr/lib/python3/dist-packages/craftisan/styles/tecno.qss
 3f4cfd5be6314f3e08bf5969e2a777fa  usr/lib/python3/dist-packages/craftisan/tecno/__init__.py
 69adc540223e49653140a0928f05e7e8  usr/lib/python3/dist-packages/craftisan/tecno/about_dialog.py
-49d5232ecd299a8b27039622c962916e  usr/lib/python3/dist-packages/craftisan/tecno/install.sh
-f7ac4533928ce7b053bcbdce3294f59a  usr/lib/python3/dist-packages/craftisan/tecno/tecno.py
+7dab75770dca4a05baa3a0154050bd25  usr/lib/python3/dist-packages/craftisan/tecno/install.sh
+7e28822beb6b131ce0b05c6eda02d69d  usr/lib/python3/dist-packages/craftisan/tecno/tecno.py
 efacc9f11d18cd109c885cc3c2d34814  usr/lib/python3/dist-packages/craftisan/tecno/tecno_manager.py
 676cb9e1e602020b3086e535ced0f49c  usr/lib/python3/dist-packages/craftisan/tecno/widgets/__init__.py
 9775a4430b944d38d2d4f074abd87c5b  usr/lib/python3/dist-packages/craftisan/tecno/widgets/edit_views/__init__.py
@@ -169,7 +170,7 @@ a93b1e56b1b0f82fd3194a6b0aecb6b3  usr/lib/python3/dist-packages/craftisan/tecno/
 b72fc2013c337e12aaa8b5232199c2c0  usr/lib/python3/dist-packages/craftisan/tecno/widgets/managers/db_changes.py
 98c3df78b31eb76c05d53f5a2a72cb72  usr/lib/python3/dist-packages/craftisan/tecno/widgets/placeholders.py
 3253e3ba57672a672c3ad86e5826615a  usr/lib/python3/dist-packages/craftisan/tecno/widgets/tool_help.py
-3a2a275a94a37665b319261d1c8f7bc8  usr/lib/python3/dist-packages/craftisan/tecno/widgets/tree_view.py
+285d8c3c32d6f5d438103b5790196833  usr/lib/python3/dist-packages/craftisan/tecno/widgets/tree_view.py
 a537dd8fd6ffc05e3759390a25539de6  usr/lib/python3/dist-packages/craftisan/test.db
 f97845a83728ab3997ce57628c20b607  usr/lib/python3/dist-packages/craftisan/test.old.db
 d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/craftisan/tool_db/__init__.py

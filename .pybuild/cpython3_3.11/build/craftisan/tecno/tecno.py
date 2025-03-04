@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, time
-import subprocess
+import sys, time, os
+import inspect
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QSplashScreen
 from PyQt5.QtCore import QLockFile, QDir, Qt
@@ -10,7 +10,8 @@ from craftisan.tecno.tecno_manager import TecnoManagerWindow, WIN_TITLE, WIN_ICO
 import craftisan.craftisan_rc
 
 
-XDO_CMD = "xdotool search --onlyvisible --class {0} windowactivate --sync windowfocus --sync"
+# XDO_CMD = "xdotool search --onlyvisible --class {0} windowactivate --sync windowfocus --sync"
+XDO_CMD = f"xdotool search --name '{WIN_TITLE}' windowactivate --sync"
 
 class TecnoDBApplication(QApplication):
     def __init__(self, argv):
@@ -27,8 +28,7 @@ class TecnoDBApplication(QApplication):
 
     def activateExistingInstance(self):
         try:
-            cmd = XDO_CMD.format(WIN_TITLE).split()
-            subprocess.run(cmd)
+            os.system(XDO_CMD)
         except FileNotFoundError:
             print("xdotool is not installed. Please install it `sudo apt install xdotool`.")
 
@@ -37,7 +37,10 @@ class TecnoDBApplication(QApplication):
 
 
 def main():
-    style_file = '/home/cnc/dev/craftisan/src/craftisan/styles/tecno.qss'
+    # style_file = '/home/cnc/dev/craftisan/src/craftisan/styles/tecno.qss'
+    comp_path = inspect.getfile(craftisan.craftisan_rc)
+    dir_name = os.path.dirname(comp_path)
+    style_file = os.path.join(dir_name, 'styles/tecno.qss')
 
     app = TecnoDBApplication(sys.argv)
     app.setStyle('Fusion')

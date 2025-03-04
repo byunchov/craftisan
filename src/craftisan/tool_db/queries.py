@@ -11,60 +11,6 @@ def getToolById(toolId: int) -> Tool:
         # session.expunge(tool)
         return tool
 
-def getUnassignedTools_old(search_query: str = '', assigned_tools: list=None) -> dict:
-    with Session() as session:
-        assigned_tool_ids = assigned_tools or (
-            select(Tool.id)
-            .join(Pocket, Pocket.toolId == Tool.id)
-        )
-
-        result = (
-            session.query(Category, SubCategory, Tool)
-            .join(SubCategory, Category.subcategories)
-            .join(Tool, SubCategory.tools)
-            .filter(
-                or_(
-                    Tool.id.like(f'%{search_query}%'),
-                    Tool.description.like(f'%{search_query}%'),
-                ),
-                # Tool.id.notin_(subquery),
-                Tool.id.notin_(assigned_tool_ids),
-            )
-            .all()
-        )
-        result_grouped = {}
-
-        for category, subcategory, tool in result:
-            if category.id not in result_grouped:
-                result_grouped[category.id] = {
-                    "id": category.id,
-                    "nodeType": "category",
-                    "displayName": category.fallbackText,
-                    "icon": category.icon,
-                    "subcategories": []
-                }
-
-            subcategory_entry = {
-                "id": subcategory.id,
-                "nodeType": "subcategory",
-                "displayName": subcategory.fallbackText,
-                "icon": subcategory.icon,
-                "tools": [
-                    {
-                        "id": tool.id,
-                        "nodeType": "tool",
-                        "displayName": str(tool),
-                        "icon": tool.icon,
-                    }
-                ]
-            }
-
-            result_grouped[category.id]["subcategories"].append(subcategory_entry)
-
-        return result_grouped
-    
-    tool_tree = {}
-
 def getUnassignedTools(search_query: str = '', assigned_tools: list=None) -> dict:
     with Session() as session:
         assigned_tool_ids = assigned_tools or (

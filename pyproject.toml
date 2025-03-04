@@ -21,6 +21,7 @@ python = "^3.7"
 
 [tool.poetry.scripts]
 craftisan = "craftisan:main"
+tecno = "craftisan.tecno.tecno:main"
 
 [tool.poetry.plugins]
 

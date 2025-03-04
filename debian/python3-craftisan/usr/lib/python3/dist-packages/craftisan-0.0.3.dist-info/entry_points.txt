@@ -1,5 +1,6 @@
 [console_scripts]
 craftisan=craftisan:main
+tecno=craftisan.tecno.tecno:main
 
 [qtpyvcp.vcp]
 craftisan=craftisan

@@ -38,7 +38,6 @@ class ToolTreeView(QTreeView):
         self.setIconSize(QSize(icon_size, icon_size))
         self.setHeaderHidden(True)
         self.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.customContextMenuRequested.connect(self.openContextMenu)
 
         self._initActions()
         self._connectActions()
@@ -104,7 +103,9 @@ class ToolTreeView(QTreeView):
         # self.modifyTool.connect(print)
         # self.insertTool.connect(print)
         self.selection_model.selectionChanged.connect(self.onSelectionChanged)
+        self.doubleClicked.connect(self.onModifyTool_Action)
         DB_CHANGES.listChanged.connect(self.save_db_action.setEnabled)
+        self.customContextMenuRequested.connect(self.openContextMenu)
 
     def onSelectionChanged(self, selected: QItemSelection, deselected):
         try:
@@ -118,7 +119,7 @@ class ToolTreeView(QTreeView):
         except IndexError:
             self.changePreview.emit({'nodeType': 'category', 'id': 1})
             return
-
+        
     def openContextMenu(self, position):
         nodeIndex = self.indexAt(position)
 
