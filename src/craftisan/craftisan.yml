@@ -1,0 +1,154 @@
+# Include the QtPyVCP default menubar.
+{% include "craftisan_menu.yml" %}
+
+qtdesigner:
+  ui_file: ( windows.mainwindow.kwargs.ui_file )
+  qss_file: ( application.kwargs.stylesheet )
+
+vcp:
+  name: Craftisan H200
+  version: v0.0.1
+  author: Bozhidar Yunchov
+  description: >
+    Put a short description of your VCP here. This will be
+    shown in the VCP Chooser when launching QtPyVCP with the
+    --chooser option.
+
+
+    Examples of what to included here:
+      * VCP Features
+      * Type of machine the VCP is for
+      * Development status
+      * Acknowledgments
+
+data_plugins:
+  status:
+    kwargs:
+      cycle_time: 75
+
+  tooltable:
+    provider: craftisan.plugins.tool_table_v2:DBToolTable
+    kwargs:
+      columns: TPXYZCDR
+      remember_tool_in_spindle: True
+  
+  laserpos:
+    provider: craftisan.plugins.laser_pos:LaserPosTable
+    kwargs:
+      init_pos: M5;G53 G0 Z-5;G53 G0 X10
+      laser_pin: 9
+      # laser_ofs: 119.59
+      laser_ofs: 127.69
+      pods_per_console: 4
+      console_count: 6
+      console_limits:
+        - [66, 855]
+        - [200, 1150]
+        - [340, 1600]
+        - [1620, 2885]
+        - [1995, 3025]
+        - [2325, 3165]
+
+  cycle:
+    provider: craftisan.plugins.cycle:CycleButtons
+  
+  gcode_properties:
+    provider: craftisan.plugins.gcode_properties:GCodeProperties
+
+dialogs:
+  select_tool:
+    provider: craftisan.ui.dialogs.tool_db.select_tool:SelectToolDialog
+  about_craftisan:
+    provider: qtpyvcp.widgets.dialogs.about_dialog:AboutDialog
+    kwargs:
+      ui_file: {{ file.dir }}/ui/about.ui
+
+windows:
+  mainwindow:
+    # Specify the class to use for the VCP's mainwindow
+    #   Format: package.module:class
+    provider: craftisan.mainwindow:CraftisanWindow
+
+    # Keyword arguments to pass when initializing the class.
+    kwargs:
+      # Specify the mainwindow menubar as the default.
+      menu: ( menubar )
+      # Specify the UI file to load the window layout from.
+      ui_file: {{ file.dir }}/ui/craftisan.ui
+      # Specify a stylesheet to use only for mainwindow.
+      stylesheet: null
+      # Set the window title from from the date in the vcp section above.
+      title: ( vcp.name )
+      maximize: True
+
+application:
+  kwargs:
+    # Specify the application wide stylesheet.
+    stylesheet: {{ file.dir }}/styles/craftisan.qss
+    custom_fonts: {{ file.dir }}/fonts
+
+settings:
+  workbench.ena-vacuum-left:
+    default_value: True
+    persistent: True
+    value_type: bool
+  
+  workbench.ena-vacuum-right:
+    default_value: True
+    persistent: True
+    value_type: bool
+  
+  workbench.ena-template-left:
+    default_value: False
+    persistent: True
+    value_type: bool
+
+  workbench.ena-template-right:
+    default_value: False
+    persistent: True
+    value_type: bool
+  
+  workbench.ena-clamps:
+    default_value: False
+    persistent: True
+    value_type: bool
+
+  workbench.ena-clamps-rpedal:
+    default_value: False
+    persistent: True
+    value_type: bool
+      
+  workbench.connect-lr-clamps:
+    default_value: False
+    persistent: True
+    value_type: bool
+
+  workbench.connect-lr-tmpl:
+    default_value: False
+    persistent: True
+    value_type: bool
+
+  workbench.stops.ena-lat-left:
+    default_value: True
+    persistent: True
+    value_type: bool
+
+  workbench.stops.ena-lat-right:
+    default_value: True
+    persistent: True
+    value_type: bool
+
+  workbench.stops.area-selector:
+    default_value: 10
+    persistent: True
+    options:
+      "Left Area": 10
+      "Top Left": 11
+      "Top Left Extended": 13
+      "Bottom Left": 12
+      "Bottom Left Extended": 14
+      "Right Area": 20
+      "Top Right": 21
+      "Top Right Extended": 23
+      "Bottom Right": 22
+      "Bottom Right Extended": 24

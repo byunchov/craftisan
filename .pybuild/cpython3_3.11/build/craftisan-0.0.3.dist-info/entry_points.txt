@@ -1,0 +1,9 @@
+[console_scripts]
+craftisan=craftisan:main
+
+[qtpyvcp.vcp]
+craftisan=craftisan
+
+[qtpyvcp.widgets]
+craftisan_widgets=widgets
+

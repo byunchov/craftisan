@@ -1,0 +1,170 @@
+G21 G90 G17 G40 G43 G64 P0.01
+G55
+
+(Dim)
+#<l> = 600
+#<h> = 400
+#<s> = 50
+
+(Offsets)
+#<ofx> = #<_hal[pyvcp.ofx]>
+#<ofy> = #<_hal[pyvcp.ofy]>
+#<ofz> = #<_hal[pyvcp.ofz]>
+
+(Public)
+#<plate_length> = 196
+#<plate_height> = 18
+#<plate_thickness> = 2.5
+#<plate_depth> = 3
+#<handle_cx> = 450
+#<handle_cy> = 50
+#<handle_plate_pos> = 143
+#<handle_dia> = 25
+#<lock_width> = 136
+#<lock_depth> = 74
+#<key_dia> = 20
+#<handle_key_dist> = 90
+#234 = 3 ; test with numbered parameters | i
+
+(Executions)
+#<exec_handle> = 0
+#<exec_key> = 0
+#<exec_plate> = 1
+#<exec_lock> = 1
+
+;(Reps)
+#<reps_lock> = 10
+#<reps_handle> = 6
+#<reps_key> = 6
+#<plate_allowance> = 1 (Total plate allowance)
+#<coning_dist> = 0.6
+(Feeds)
+#<plunge_feed> = 1200
+#<work_feed_lock> = 2500
+#<work_feed_handle> = 3000
+#<safe_z> = 30
+
+
+(Calculations)
+#<plate_depth_tolerance> = ABS[#<plate_depth>-#<plate_thickness>]
+#<handle_pos_y> = [#<h> - #<handle_cy> - #<plate_depth_tolerance>]
+#<key_pos_x> = [#<handle_cx>-#<handle_key_dist>]
+; #<plate_cx> = [#<handle_cx>-ABS[#<handle_plate_pos>-#<plate_length>/2]+#<plate_allowance>/2]
+#<plate_cx> = [#<handle_cx>-ABS[#<handle_plate_pos>-#<plate_length>/2]]
+#<plate_pos_z> = [#<s>/2]
+#<zf_handle> = [#<s>+2]
+#<lock_step> = [#<lock_depth>/#<reps_lock>]
+#<coning_val> = [#<coning_dist>/#<reps_lock>]
+
+#<plate_radius> = [[#<plate_height>+#<plate_allowance>-#<td_lock>]/2]
+#<plate_line> = [#<plate_length>-#<plate_height>+#<plate_allowance>]
+#<lock_line> = [#<lock_width>-#<td_lock>*0.25]
+
+o05 if [#<_coord_system> EQ 590 OR #<_coord_system> EQ 570]
+  G52 X-[#<l>+#<ofx>] Y#<ofy> Z[ABS[#<s>]+#<ofz>]
+o05 else
+  G52 X[#<ofx>] Y#<ofy> Z[ABS[#<s>]+#<ofz>] 
+o05 endif
+
+
+G53 G0 Z0
+M250 P#<l> Q#<h> R#<s>
+
+o20 if [#<exec_plate> OR #<exec_lock>]
+T#<tool_lock> M6 G43
+; S8000 M3
+M100 P3 M7
+G90 G0 C0
+G43.1 Y#<lt>
+G0 Y[#<h> + #<safe_z>]
+
+o21 if [#<exec_plate>]
+  G0 X[#<plate_cx>-#<plate_radius>]
+  G0 Z-[#<plate_pos_z>]
+  G1 Y[#<h> - #<plate_depth>] F#<plunge_feed>
+  G91 G18
+  G2 X#<plate_radius> Z-#<plate_radius> I#<plate_radius> F#<work_feed_lock>
+  G1 X[#<plate_line>/2]
+  G2 Z[#<plate_radius>*2] K#<plate_radius>
+  G1 X-#<plate_line>
+  G2 Z-[#<plate_radius>*2] K-#<plate_radius>
+  G1 X[#<plate_line>/2+2]
+  G2 X#<plate_radius> Z#<plate_radius> K#<plate_radius>
+  G90 G0 Y[#<h> + 5]
+o21 endif
+
+o22 if [#<exec_lock>]
+  G90 G0 X[#<plate_cx>+[#<lock_line>/2]] 
+  G0 Z-#<plate_pos_z>
+  G1 Y[#<h> - #<plate_depth>] F#<plunge_feed>
+  G91 F#<work_feed_lock>
+
+  #10 = 0
+  o100 repeat[#<reps_lock>]
+
+    o101 if [[#10 MOD 2] EQ 0]
+      G1 X-[#<lock_line>-#<coning_val>*#10] Y-#<lock_step>
+    o101 else
+      G1 X[#<lock_line>-#<coning_val>*#10] Y-#<lock_step>
+    o101 endif
+
+    #10 = [#10+1]
+  o100 endrepeat
+
+  o102 if [[#<reps_lock> MOD 2] EQ 0]
+    G1 X-[#<lock_line>-#<coning_val>*#10]
+  o102 else
+    G1 X[#<lock_line>-#<coning_val>*#10]
+  o102 endif
+o22 endif
+
+G90 G0 Y[#<h> + #<safe_z>]
+G0 Z[#<safe_z> + #<aria>]
+o20 endif
+
+G43.1 Y0
+M5
+M205
+G52 X0 Y0 Z0
+M30
+%
+
+o800 sub
+M73
+G64 P0.01 G90 G17
+
+#<td> = #1 (Tool D)
+#<dia_mufa> = #2 (Mufa diameter)
+#<cx> = #3
+#<cy> = #4
+#<zf_mufa> = #5 (Final Z for Mufa)
+#<reps_mufa> = #6 (Step count Mufa)
+#<safe_z> = #7
+#<plunge_feed> = #8
+#<work_feed_mufa> = #9
+
+#<entry_z> = 2
+
+#<r_mufa_comp> = [[#<dia_mufa>-#<td>]/2]
+#<z_step_mufa> = [[#<zf_mufa>+#<entry_z>]/#<reps_mufa>]
+#<ys> = [#<cy> - #<r_mufa_comp>]
+
+G0 X#<cx> Y#<ys>
+G0 Z#<safe_z>
+G1 Z#<entry_z> F#<plunge_feed>
+G91 F#<work_feed_mufa>
+
+#20 = 1
+#30 = [#<reps_mufa>]
+o80 while [#20 LE #<reps_mufa>]
+  G3 Z-[#<z_step_mufa>] J#<r_mufa_comp>
+
+  o41 if [#20 EQ #30]
+    G3 J#<r_mufa_comp>
+  o41 endif
+
+  #20 = [#20 + 1]
+o80 endwhile
+G90 G0 Z#<safe_z>
+
+o800 endsub

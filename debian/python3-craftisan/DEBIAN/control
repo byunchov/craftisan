@@ -1,0 +1,11 @@
+Package: python3-craftisan
+Source: craftisan
+Version: 0.0.3-2
+Architecture: all
+Maintainer: Bozhidar Yunchov <bobi.iv.yu@gmail.com>
+Installed-Size: 24806
+Depends: python3:any (>= 3.7~), python3-setuptools, python3-yaml, python3-pyqt5, python3-dbus.mainloop.pyqt5, python3-pyqt5.qtopengl, python3-pyqt5.qsci, python3-serial, python3-docopt, python3-qtpy, python3-psutil, python3-pyudev, python3-vtk9, python3-deepdiff, python3-sqlalchemy, python3-pyqtgraph, python3-simpleeval, qttools5-dev-tools
+Section: cnc
+Priority: optional
+Homepage: https://qtpyvcp.com
+Description: craftisan - A QtPyVCP based Virtual Control Panel for LinuxCNC

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="4.7624998mm"
+   height="4.7624998mm"
+   viewBox="0 0 4.7624998 4.7624998"
+   version="1.1"
+   id="svg1271"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   sodipodi:docname="cb_indeterinate_hover.svg">
+  <defs
+     id="defs1265" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="15.839192"
+     inkscape:cx="6.7344062"
+     inkscape:cy="9.9595799"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1012"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1268">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-145.02946,-259.93423)">
+    <rect
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="rect1282"
+       width="3.70416"
+       height="3.70416"
+       x="145.55862"
+       y="260.46341" />
+    <path
+       d="m 149.26279,259.93424 h -3.70416 c -0.29105,0 -0.52917,0.23812 -0.52917,0.52917 v 3.70416 c 0,0.29104 0.23812,0.52917 0.52917,0.52917 h 3.70416 c 0.29104,0 0.52917,-0.23813 0.52917,-0.52917 v -3.70416 c 0,-0.29105 -0.23813,-0.52917 -0.52917,-0.52917 z m 0,4.23333 h -3.70416 v -3.70416 h 3.70416 z m -3.175,-2.11666 h 2.64584 v 0.52916 h -2.64584 z"
+       id="🔹-Icon-Color"
+       fill="#425a76"
+       style="fill-rule:evenodd;stroke:none;stroke-width:0.264583" />
+  </g>
+</svg>

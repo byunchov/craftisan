@@ -1,0 +1,1 @@
+from .tecno_manager import TecnoManagerWindow

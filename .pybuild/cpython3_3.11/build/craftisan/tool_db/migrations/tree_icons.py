@@ -1,0 +1,21 @@
+Icons = {
+    'aggregates': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/aggregates.png',
+    'blind_drill': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/blind_drill.png',
+    'blind_drills': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/blind_drills.png',
+    'cutters_router': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/cutters_router.png',
+    'cutters_routers': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/cutters_routers.png',
+    'drills': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/drills.png',
+    'hor12_aggregate': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/hor12_aggregate.png',
+    'hor12_aggregates': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/hor12_aggregates.png',
+    'multi_profile_router': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/multi_profile_router.png',
+    'multi_profile_routers': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/multi_profile_routers.png',
+    'profiled_router': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/profiled_router.png',
+    'profiled_routers': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/profiled_routers.png',
+    'routers': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/routers.png',
+    'saw_aggregate': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/saw_aggregate.png',
+    'saw_aggregates': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/saw_aggregates.png',
+    'through_drill': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/through_drill.png',
+    'through_drills': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/through_drills.png',
+    'tilting_aggregate': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/templates/tilting_aggregate.png',
+    'tilting_aggregates': '/home/cnc/linuxcnc/configs/craftisan_h200/tool_db/icons/categories/tilting_aggregates.png'
+ }
